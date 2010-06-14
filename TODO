@@ -1,0 +1,36 @@
+=================
+PRIORITY: HIGH
+=================
+
+o Set some limits on the view's width and height, particularly when zooming. If
+the view grows a lot but the window remains small, the graph becomes a mess.
+o Improve dataset plotting.
+o Implement ticks & graphs labeling.
+o Implement ticks, axes & grid as GsPlot items.
+o Keyboard movement & zooming.
+o Don't draw points outside view's limits. This is causing a lot of graphic
+glitches such as the coordinate axes appearing when scrolling (a lot) to the left
+or right, or function getting evaluated with strange x values, resulting in points
+showing in wrong locations.
+o Handle non-numerical values (i.e. the graph 1/x becomes a mess because 1/0 is evaluated).
+o Implement some sort of 'continuity detection' for non-continuous functions like 1/x (i.e. avoid joining the last point < 0 with the first one > 0)
+
+=================
+PRIORITY: NORMAL
+=================
+
+o Abstract plotting details by using a GsPlot object which can be inherited by GsFunctionPlot
+and GsDatasetPlot. Create new plots: vector fields, polar curves, etc. [DONE]
+o Create API methods in order to allow for plot removal.
+o Implement tooltips for GsGraph. The tooltips could be used to display
+the (x,y) coords of the location the cursor is pointing at.
+
+=================
+PRIORITY: LOW
+=================
+
+o Allow for modification of point radius and zoom factor.
+o Cairo support.
+o Create a graphic quality comparison with other plotting widgets and
+software (GtkExtra, Winplot, etc.)
+o GsFunctionPlot: allow function's domain to be locked on [a,b].
